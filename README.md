@@ -3,9 +3,12 @@ How to use Cloud Channel API
 
 ## Pre-requisites
 
-Para esta API funcionar é necessário adicionar o usuário do workspace que receberá a delegação com a permissão 
+Para esta API funcionar é necessário adicionar o usuário do workspace que receberá a delegação com a permissão
+
 
 To API request WORKS a user from Google WorkSpace Domain need to have the Resales permission.
+
+
 In our case we have create a GOogle Workspace Custom Function with Resalles read permission
 
 ![image](https://github.com/user-attachments/assets/372806f8-5529-47ec-83c6-d01af77833af)
