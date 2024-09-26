@@ -32,6 +32,8 @@ After get the Service Account ID go back to google WorkSpace and configure Domai
 ![image](https://github.com/user-attachments/assets/a711c894-4e7f-4357-829c-e819ab0115e1)
 
 
+Add the Service account ID and scope
+
 https://www.googleapis.com/auth/apps.order
 
 
