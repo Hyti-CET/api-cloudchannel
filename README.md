@@ -42,3 +42,51 @@ https://www.googleapis.com/auth/cloud-platform
 ![image](https://github.com/user-attachments/assets/46a17501-30e2-4eef-a756-3dcd08a2f022)
 
 
+## Code to use API.
+
+Requirement.txt
+```txt
+
+
+./cogoogle-api-python-client 
+google-auth-httplib2 
+google-auth-oauthlib
+google-cloud-channel
+``` 
+
+Código Python
+
+```py
+from google.oauth2 import service_account
+from google.cloud import channel_v1
+SERVICE_ACCOUNT_FILE = '/path-your-service-accountfile/serviceaccount.json'
+SCOPES = ['https://www.googleapis.com/auth/apps.order','https://www.googleapis.com/auth/cloud-platform']
+def main():
+    credentials = service_account.Credentials.from_service_account_file(
+        SERVICE_ACCOUNT_FILE,        
+        scopes=SCOPES)
+    delegated_creds = credentials.with_subject("workspaceUser@yourdomain.com")
+    client = channel_v1.CloudChannelServiceClient(credentials=delegated_creds)
+    parent = "accounts/{insert your WorkSpace ID Client Here, see the next image to know how to get it}"
+    request = channel_v1.ListCustomersRequest(parent=parent)
+    try:
+        response = client.list_customers(request=request)
+        for customer in response.customers:
+            print(f"Customer Name: {customer.name}")
+            print(f"Customer Org Display Name: {customer.org_display_name}")
+            print(f"Customer Create Time: {customer.create_time}")
+            print("-" * 40)
+    except Exception as e:
+        print(f"An error occurred: {e}")
+if __name__ == '__main__':
+    main()
+
+```
+
+### How to Get Client ID.
+![image](https://github.com/user-attachments/assets/2aa80445-5dc4-40bc-b8e2-5bf97c9c7ace)
+
+
+
+
+
